@@ -1,0 +1,541 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 1000px;
+    perspective: 1000px;
+    transform-style: preserve-3d; 
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.left-wall, .back-wall, .right-wall, .ceiling, .floor {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.right-wall {
+    height: 100vh;
+    width: 100vw;
+    transform: translateZ(-1px) rotateY(-90deg);
+    transform-origin: right top;
+    position: absolute;
+    top: 0;
+    background: #fff;
+    background: linear-gradient(to left, #fff 0%, #aeaaaa 100%);
+    background-image:'//www.transparenttextures.com/patterns/black-scales.png';
+}
+
+.left-wall {
+    height: 100vh;
+    width: 100vw;
+    background: #EFC100;
+    transform: rotateY(90deg);
+    transform-origin: left top;
+    position: absolute;
+    background: linear-gradient(to right, #fff 0%, #aeaaaa 100%);
+    background-image:'//www.transparenttextures.com/patterns/black-scales.png';
+
+}
+
+.back-wall {
+    height: 100vh;
+    width: 100vw;
+    background: #dedbdb;
+    background-image:'//www.transparenttextures.com/patterns/black-scales.png';
+    transform: translate3d(0, 0, -100vw);
+}
+
+.ceiling {
+    background: #a2a2a2;
+    height: 100vw;
+    width: 100vw;
+    transform: translate3d(0, 0, 0) rotateX(-90deg);
+    transform-origin: center top;
+    position: absolute;
+    top: 0;
+    background: linear-gradient(to bottom, #fff 0%, #aeaaaa 100%);
+    background-image:'//www.transparenttextures.com/patterns/black-scales.png';
+}
+
+.floor {
+    background-color: #d8d8d8;
+    background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+    height: 100vw;
+    width: 100vw;
+    transform: translate3d(0, 0, 0) rotateX(90deg);
+    transform-origin: 50% bottom;
+    position: absolute;
+    bottom: 0;
+}
+
+.ceiling-pattern {
+    height: 100%;
+    width: 100%;
+    background: url('https://www.transparenttextures.com/patterns/argyle.png');
+    background-size: 200px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    mix-blend-mode: multiply;
+    opacity: .7;
+}
+
+.ceiling-darken {
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    mix-blend-mode: color;
+    opacity: .4;
+}
+
+.wall-texture {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('https://4.bp.blogspot.com/-5xNMmxVjWKg/UA5bNp_0jaI/AAAAAAAAB4s/QXcwBUUPPKw/s1600/Seamless+wall+white+paint+stucco+plaster+texture.jpg');
+    background-size: 500px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    mix-blend-mode: color-burn;
+
+}
+
+.wall-pattern {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url('http://www.thomasdecian.com/wp-content/uploads/2014/01/WC-4009-thai-designs-wall-pattern-a-fire2.jpg');
+    background-size: 500px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    mix-blend-mode: hard-light;
+}
+
+.floor-darken {
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    mix-blend-mode: color;
+    opacity: .70;
+}
+
+.floor-texture {
+    height: 100%;
+    width: 100%;
+    background: url('http://www.crazybert.ru/images/cms/data/katalog/plitka/Barrier_Zone/Barricade/grey.jpg');
+
+    background-size: 250px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    mix-blend-mode: hard-light;
+}
+
+.mask {
+    background-image: radial-gradient(circle at 80% 20%, rgba(var(--eye-color), 0.6), rgba(var(--shadow-color), 0.1) 50%);
+    width: var(--eye-size);
+    height: var(--eye-size);
+    position: absolute;
+    top: calc(50% - var(--eye-size) / 2);
+    left: calc(50% - var(--eye-size) / 2);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.leftSideImg {
+    height: 100%;
+    width: 100%;
+    background: none;
+    position: absolute;
+    display: flex;
+}
+
+#s1a1 {
+    width: 170%;
+    height: 50vh;
+    position: relative;
+    top: 19%;
+    left: 8%;
+    z-index: 10;
+}
+
+#s1a2 {
+    width: 50%;
+    height: 55vh;
+    position: relative;
+    top: 17%;
+    left: 21%;
+    z-index: 10;
+}
+
+#s1a3 {
+    width: 30%;
+    height: 48vh;
+    position: relative;
+    top: 21%;
+    left: -102%;
+    z-index: 10;
+}
+
+.rightSideImg {
+    height: 100%;
+    width: 100%;
+    background: none;
+    position: absolute;
+    display: flex;
+}
+
+#s3a3 {
+    width: auto;
+    height: 55vh;
+    position: relative;
+    top: 17%;
+    left: 7%;
+    z-index: 10;
+}
+
+#s3a1 {
+    width: auto;
+    height: 50vh;
+    position: relative;
+    top: 17%;
+    left: 18%;
+    z-index: 10;
+    box-shadow: #000000;
+}
+
+#s2a1 {
+    width: auto;
+    height: 60vh;
+    position: relative;
+    top: 19%;
+    left: 8%;
+    z-index: 10;
+}
+
+#s2a2 {
+    width: 50%;
+    height: 47vh;
+    position: relative;
+    top: 20%;
+    left: 13%;
+    z-index: 10;
+}
+
+#s2a3{
+    width: 70%;
+    height: 35vh;
+    position: relative;
+    top: 21%;
+    left: 16%;
+    z-index: 10;
+}
+
+#s2a4{
+    width: 50%;
+    height: 40vh;
+    position: relative;
+    top: 21%;
+    left: 20%;
+    z-index: 10;
+}
+
+.back-wall-photo img {
+    width: 100%;
+    height: auto;
+}
+
+#s3a1 {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    top: 17%;
+    z-index: 10;
+    left: 3%;
+}
+
+#s3a2 {
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    top: 17%;
+    z-index: 10;
+    left: 35%;
+
+}
+
+#s3a3 {
+    width: 20%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    z-index: 10;
+    left: 78%;
+   
+}
+
+#buttonChange {
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+    background-color: #9198e5;
+    transform: translate3d(0, 0, +100vw);
+    font-size: 80px;
+}
+
+@media screen and (max-width:768px) {
+    #buttonChange {
+        display: block;
+    }
+
+}
+
+#Welcome {
+    color: #000000;
+    z-index: 10;
+    left: 20%;
+    /* adjust left value to move element to the left */
+    bottom: 15%;
+    /* adjust bottom value to move element up */
+    font-size: 100px;
+    position: absolute;
+    transform: translateZ(300px);
+    /* rotate the element -90 degrees around the X axis */
+}
+
+#buttonChange {
+    position: absolute;
+    left: 34vw;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #d4d4d4;
+    border: 1px solid #cecece;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #8d8d8d,
+        -6px -6px 12px #e7e7e7;
+}
+
+#buttonChange:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
+
+.allText {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8vw;
+    font-size: 1vw;
+    z-index: 100;
+    text-align: left;
+    text-decoration: none;
+    color: rgb(52, 52, 52);
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+}
+
+.allText2 {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    padding: 8vw 8vw;
+    font-size: 1vw;
+    z-index: 100;
+    text-align: left;
+    text-decoration: none;
+    color: rgb(52, 52, 52);
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+}
+
+.allText-img{
+    width: 280px;
+    height: 280px;
+}
+
+.navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+.nav-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.exit-gallery-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(47, 116, 177);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .exit-gallery-btn:hover{
+    cursor: pointer;
+    background-color: green;
+    box-shadow: 0 0 10px rgba(61, 61, 63, 0.958);
+  }
+
+.nav-button:hover {
+    background-color: #555;
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
+
+*:has(#s1a1:hover)>.s1a1Text {
+    display: block;
+}
+
+*:has(#s1a2:hover)>.s1a2Text {
+    display: block;
+}
+
+*:has(#s1a3:hover)>.s1a3Text {
+    display: block;
+}
+
+*:has(#s2a1:hover)>.s2a1Text {
+    display: block;
+}
+
+*:has(#s2a2:hover)>.s2a2Text {
+    display: block;
+}
+
+*:has(#s2a3:hover)>.s2a3Text {
+    display: block;
+}
+
+*:has(#s2a4:hover)>.s2a4Text {
+    display: block;
+}
+
+*:has(#s3a1:hover)>.s3a1Text {
+    display: block;
+}
+
+*:has(#s3a2:hover)>.s3a2Text {
+    display: block;
+}
+
+*:has(#s3a3:hover)>.s3a3Text {
+    display: block;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+
+/* Tablet screen size (between 768px and 1024px) */
+@media only screen and (max-width: 1024px) {
+    body {
+      font-size: 16px;
+      padding: 15px;
+      scroll-behavior: smooth;
+    }
+  
+    nav {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 15px;
+    }
+  
+    .nav-btn, .exit-gallery-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+    
+    .description {
+      width: 80%;
+      font-size: 14px;
+    }
+  }
+  
+  /* Smartphone screen size (max-width 767px) */
+  @media only screen and (max-width: 767px) {
+    body {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    nav {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .nav-btn, .exit-gallery-btn {
+      font-size: 12px;
+      padding: 6px 12px;
+      width: 100%; 
+      text-align: center;
+    }
+  
+    .description {
+      width: 90%;
+      font-size: 12px;
+    }
+
+    img {
+      width: 100%; 
+      max-width: 100%; 
+    }
+  }
